@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => 'http://192.168.1.20/',
+	'username' => 'root',
+	'password' => '1234',
+	'database' => 'monitoring_suhu',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
