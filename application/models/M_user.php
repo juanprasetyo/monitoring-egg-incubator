@@ -12,7 +12,8 @@ class M_user extends CI_Model
 
     public function add($data)
     {
-        return $this->db->insert('users', $data)->affected_rows();
+        $this->db->insert('users', $data);
+        return $this->db->affected_rows();
     }
 
     public function get_by_email($email)

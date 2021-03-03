@@ -14,6 +14,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/fontawesome-free/css/all.min.css">
+    <!-- Chart.js -->
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>plugins/chartjs/Chart.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
