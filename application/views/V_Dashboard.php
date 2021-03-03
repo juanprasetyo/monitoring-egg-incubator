@@ -23,7 +23,11 @@
           <div class="container-fluid">
               <div class="row">
 
-                  Ini Dashboard
+                  <div class="card-body">
+                      <div class="chart">
+                          <canvas id="lineChart" style="min-height: 250px; max-width: 100%;"></canvas>
+                      </div>
+                  </div>
 
               </div>
               <!-- /.row -->

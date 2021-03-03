@@ -68,8 +68,10 @@ class C_Auth extends CI_Controller
             $affected = $this->user->add($user);
             if($affected > 0){
                 $this->session->set_flashdata('register', 'success');
+                redirect(base_url('register'));
             } else {
                 $this->session->set_flashdata('register', 'failed');
+                redirect(base_url('register'));
             }
         }
 
