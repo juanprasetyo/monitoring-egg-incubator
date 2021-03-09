@@ -25,26 +25,25 @@ class C_Index extends CI_Controller
         $this->load->view('V_Footer', $data);
     }
 
-    public function insert_suhu_kelembaban()
-    {   
-        $suhu       = $this->input->get('suhu');
-        $kelembaban = $this->input->get('kelembaban');
-
-        $this->M_monitoring->insert_suhu_kelembaban()($suhu, $kelembaban);
-    }
-
-    public function get_suhu()
+    public function get_suhu_kelembaban()
     {
         date_default_timezone_set("Asia/Jakarta");
-        $data = $this->M_monitoring->get_suhu();
+        $data = $this->M_monitoring->get_suhu_kelembaban();
 
         $result = [];
         foreach ($data as $key => $value) {
-            $result['date'][]       = date('d M Y H:i', $value['date']);
-            $result['suhu'][]       = $value['suhu'];
-            $result['kelembaban'][] = $value['kelembaban'];
+            $result['date'][]       = date('d M Y H:i', $value['DATE_CREATE']);
+            $result['suhu'][]       = $value['SUHU'];
+            $result['kelembaban'][] = $value['KELEMBABAN'];
         }
 
         echo json_encode($result);
+    }
+
+    public function get_last_suhu_kelembaban()
+    {
+        $data = $this->M_monitoring->get_last_suhu_kelembaban();
+
+        echo json_encode($data);
     }
 }

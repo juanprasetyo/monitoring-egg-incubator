@@ -59,3 +59,5 @@ $route['register']                          = 'C_Auth/register_view';
 
 $route['dashboard']                         = 'C_Index';
 $route['dashboard/(:any)']                  = 'C_Index/$1';
+
+$route['insert_suhu_kelembaban']            = 'C_Setting/insert_suhu_kelembaban';

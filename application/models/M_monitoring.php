@@ -15,18 +15,23 @@ class M_monitoring extends CI_Model
         date_default_timezone_set("Asia/Jakarta");
         
         $data = [
-            'suhu'          => $suhu,
-            'kelembaban'    => $kelembaban,
-            'date'          => strtotime(date('d-M-Y H:i'))
+            'SUHU'          => $suhu,
+            'KELEMBABAN'    => $kelembaban,
+            'DATE_CREATE'   => strtotime(date('d-M-Y H:i'))
         ];
 
-        $this->db->insert('suhu', $data);
-        // $this->db->update('suhu', $data, ['id' => 1]);
+        $this->db->insert('SUHU_KELEMBABAN', $data);
     }
 
-    public function get_suhu()
+    public function get_suhu_kelembaban()
     {
-        $query = "SELECT * FROM suhu ORDER BY id DESC limit 5";
+        $query = "SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC limit 5";
         return $this->db->query($query)->result_array();
+    }
+
+    public function get_last_suhu_kelembaban()
+    {
+        $query = 'SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC LIMIT 1';
+        return $this->db->query($query)->row_array();
     }
 }
