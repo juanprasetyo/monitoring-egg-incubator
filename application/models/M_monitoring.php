@@ -10,7 +10,7 @@ class M_monitoring extends CI_Model
         $this->load->database();
     }
 
-    public function insert_suhu_kelembaba($suhu, $kelembaban)
+    public function insert_suhu_kelembaban($suhu, $kelembaban)
     {
         date_default_timezone_set("Asia/Jakarta");
         

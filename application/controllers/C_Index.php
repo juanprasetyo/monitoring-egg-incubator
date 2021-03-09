@@ -25,10 +25,10 @@ class C_Index extends CI_Controller
         $this->load->view('V_Footer', $data);
     }
 
-    public function get_suhu()
+    public function get_suhu_kelembaban()
     {
         date_default_timezone_set("Asia/Jakarta");
-        $data = $this->M_monitoring->get_suhu();
+        $data = $this->M_monitoring->get_suhu_kelembaban();
 
         $result = [];
         foreach ($data as $key => $value) {

@@ -1,10 +1,11 @@
 $(window).on("load", function () {
 	console.log(baseurl);
 	let date, suhu, kelembaban;
+	function showChart() {
 	$.ajax({
 		type: "POST",
 		dataType: "JSON",
-		url: baseurl + "dashboard/get_suhu",
+			url: baseurl + "dashboard/get_suhu_kelembaban",
 		async: false,
 	}).done((response) => {
 		console.log(response);
@@ -58,4 +59,7 @@ $(window).on("load", function () {
 			},
 		},
 	});
+		window.setTimeout(showChart, 10000);
+	}
+	showChart();
 });
