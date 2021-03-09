@@ -31,7 +31,6 @@
 
 <script>
 var baseurl = '<?= base_url(); ?>';
-console.log(baseurl)
 </script>
 
 <!-- Custom monitoring js -->
