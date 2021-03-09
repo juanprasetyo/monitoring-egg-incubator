@@ -39,4 +39,11 @@ class C_Index extends CI_Controller
 
         echo json_encode($result);
     }
+
+    public function get_last_suhu_kelembaban()
+    {
+        $data = $this->M_monitoring->get_last_suhu_kelembaban();
+
+        echo json_encode($data);
+    }
 }

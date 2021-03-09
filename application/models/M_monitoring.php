@@ -21,12 +21,17 @@ class M_monitoring extends CI_Model
         ];
 
         $this->db->insert('SUHU_KELEMBABAN', $data);
-        // $this->db->update('suhu', $data, ['id' => 1]);
     }
 
-    public function get_suhu()
+    public function get_suhu_kelembaban()
     {
         $query = "SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC limit 5";
         return $this->db->query($query)->result_array();
+    }
+
+    public function get_last_suhu_kelembaban()
+    {
+        $query = 'SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC LIMIT 1';
+        return $this->db->query($query)->row_array();
     }
 }

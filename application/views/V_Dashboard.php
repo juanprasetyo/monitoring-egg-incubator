@@ -190,7 +190,7 @@
                     <div class="small-box bg-info pt-3 pb-2">
                         <div class="inner">
                             <h4 class="mb-3">Kelembaban</h4>
-                            <h3><span class="kelembaban"></span>%</h3>
+                            <h3><span class="kelembaban">0</span>%</h3>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>

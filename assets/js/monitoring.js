@@ -62,4 +62,18 @@ $(window).on("load", function () {
 		window.setTimeout(showChart, 10000);
 	}
 	showChart();
+
+	function showLastSuhuKelembaban() {
+		$.ajax({
+			type: "POST",
+			dataType: "JSON",
+			url: baseurl + "dashboard/get_last_suhu_kelembaban",
+			async: false,
+		}).done((response) => {
+			$(".suhu").text(response["SUHU"]);
+			$(".kelembaban").text(response["KELEMBABAN"]);
+		});
+		window.setTimeout(showLastSuhuKelembaban, 10000);
+	}
+	showLastSuhuKelembaban();
 });
