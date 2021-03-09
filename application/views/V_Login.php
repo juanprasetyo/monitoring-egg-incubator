@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin</b>LTE</a>
+            <a href="#"><img src="<?= base_url('assets/'); ?>img/logo/logo-rectangle-black.svg" alt="Logo Yeagerist" style="height: 100px;"></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

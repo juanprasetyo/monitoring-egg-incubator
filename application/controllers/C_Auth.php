@@ -33,7 +33,7 @@ class C_Auth extends CI_Controller
     {
         if ($this->user->get_by_email($email)->num_rows() > 0) {
             $data = $this->user->get_by_email($email)->row_array();
-            if (password_verify($pass, $data['password'])) {
+            if (password_verify($pass, $data['PASSWORD'])) {
                 $this->session->set_userdata('status', 'login');
                 $this->session->set_userdata('email', $email);
                 redirect(base_url('dashboard'));
@@ -52,7 +52,7 @@ class C_Auth extends CI_Controller
         $data = [];
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[USERS.email]');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
         $this->form_validation->set_rules('password2', 'Password2', 'required|matches[password]');
 
@@ -60,10 +60,12 @@ class C_Auth extends CI_Controller
             $this->load->view('V_Register', $data);
         } else {
             $user = [
-                'id'        => '',
-                'name'      => htmlspecialchars($this->input->post('name')),
-                'email'     => htmlspecialchars($this->input->post('email')),
-                'password'  => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'ID'              => '',
+                'NAME'            => htmlspecialchars($this->input->post('name')),
+                'EMAIL'           => htmlspecialchars($this->input->post('email')),
+                'PASSWORD'        => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'PROFILE_PICTURE' => 'default.png',
+                'DATE_CREATE'     => strtotime(date('d M Y')),
             ];
             $affected = $this->user->add($user);
             if($affected > 0){

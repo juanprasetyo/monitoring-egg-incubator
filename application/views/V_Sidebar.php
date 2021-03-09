@@ -1,9 +1,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-          <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <a href="index3.html" class="brand-link text-center">
+          <!-- <img src="<?= base_url('assets/'); ?>img/logo/logo-square-white1.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8; width: 35px; background-color: #ffffff;">
+          <span class=" brand-text font-weight-light">Yeagerist Egg</span> -->
+          <img src="<?= base_url('assets/'); ?>img/logo/logo-rectangle-white.svg" alt="Logo Yeagerist" style="height: 50px;">
       </a>
 
       <!-- Sidebar -->
@@ -23,35 +24,19 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                  <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link active">
-                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-home"></i>
                           <p>
-                              Starter Pages
-                              <i class="right fas fa-angle-left"></i>
+                              Home
                           </p>
                       </a>
-                      <ul class="nav nav-treeview">
-                          <li class="nav-item">
-                              <a href="#" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Active Page</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="#" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Inactive Page</p>
-                              </a>
-                          </li>
-                      </ul>
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-th"></i>
+                          <i class="nav-icon fas fa-question"></i>
                           <p>
-                              Simple Link
-                              <span class="right badge badge-danger">New</span>
+                              About
                           </p>
                       </a>
                   </li>
