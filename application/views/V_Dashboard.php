@@ -201,7 +201,7 @@
                     <h4>Lampu</h4>
                     <div class="switch">
                         <label>
-                            <input type="checkbox" checked />
+                            <input type="checkbox" class="switchLampu" />
                             <div>
                                 <span class="on">On</span>
                                 <span class="off">Off</span>
@@ -215,7 +215,7 @@
                     <h4>Kipas</h4>
                     <div class="switch">
                         <label>
-                            <input type="checkbox" checked />
+                            <input type="checkbox" class="switchKipas" />
                             <div>
                                 <span class="on">On</span>
                                 <span class="off">Off</span>

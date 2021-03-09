@@ -24,6 +24,8 @@
 <script src="<?= base_url('assets/'); ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Chart Js -->
 <script src="<?= base_url('assets/'); ?>plugins/chartjs/Chart.min.js"></script>
+<!-- icheck -->
+<script src="<?= base_url('assets/'); ?>plugins/icheck/icheck.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/'); ?>js/adminlte.min.js"></script>
 

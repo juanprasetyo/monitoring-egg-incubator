@@ -34,4 +34,24 @@ class M_monitoring extends CI_Model
         $query = 'SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC LIMIT 1';
         return $this->db->query($query)->row_array();
     }
+
+    public function get_config_dht()
+    {
+        return $this->db->get('CONFIG_DHT')->row_array();
+    }
+
+    public function get_config_device()
+    {
+        return $this->db->get('STATUS_DEVICE')->row_array();
+    }
+
+    public function update_status_lampu($status)
+    {
+        $this->db->update('STATUS_DEVICE', ['LAMPU' => $status], ['ID' => 1]);
+    }
+
+    public function update_status_kipas($status)
+    {
+        $this->db->update('STATUS_DEVICE', ['KIPAS' => $status], ['ID' => 1]);
+    }
 }
