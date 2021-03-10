@@ -1,5 +1,4 @@
 $(window).on("load", function () {
-	console.log(baseurl);
 	let date, suhu, kelembaban;
 	function showChart() {
 		$.ajax({
@@ -48,6 +47,7 @@ $(window).on("load", function () {
 				title: {
 					display: true,
 					text: "Monitoring Suhu dan Kelembaban",
+					fontSize: 28,
 				},
 				scales: {
 					yAxes: [
