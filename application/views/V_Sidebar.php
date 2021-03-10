@@ -10,10 +10,11 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                  <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <?php $user['PROFILE_PICTURE'] == 'default.png' ? $image = $user['PROFILE_PICTURE'] : $image = $user['ID'] . $user['PROFILE_PICTURE'] ;?>
+                <img src="<?= base_url('assets/img/profile/') . $image; ?>" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block profile-name"><?= $user['NAME']; ?></a>
               </div>
           </div>
 

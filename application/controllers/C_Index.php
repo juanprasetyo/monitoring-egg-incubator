@@ -13,11 +13,15 @@ class C_Index extends CI_Controller
         } else {}
 
         $this->load->model('M_monitoring');
+        $this->load->model('M_user');
     }
+    
     public function index()
     {
-        $data = [
-            'title' => 'Dashboard'
+        $email = $this->session->userdata('email');
+        $data  = [
+            'title' => 'Dashboard',
+            'user'  => $this->M_user->get_by_email($email)->row_array(),
         ];
         $this->load->view('V_Header', $data);
         $this->load->view('V_Sidebar', $data);
@@ -29,6 +33,7 @@ class C_Index extends CI_Controller
     {
         date_default_timezone_set("Asia/Jakarta");
         $data = $this->M_monitoring->get_suhu_kelembaban();
+        $data = array_reverse($data);
 
         $result = [];
         foreach ($data as $key => $value) {
