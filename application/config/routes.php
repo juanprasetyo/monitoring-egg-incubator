@@ -61,7 +61,7 @@ $route['dashboard']                         = 'C_Index';
 $route['dashboard/(:any)']                  = 'C_Index/$1';
 $route['about']                             = 'C_Index/about';
 
-$route['insert_suhu_kelembaban']            = 'C_Wemos/insert_suhu_kelembaban';
-$route['updata_status_lampu']               = 'C_Wemos/update_status_lampu';
-$route['update_status_kipas']               = 'C_Wemos/update_status_kipas';
-$route['get_config_device']                 = 'C_Wemos/get_config_device';
+$route['insert_suhu_kelembaban']            = 'C_NodeMCU/insert_suhu_kelembaban';
+$route['updata_status_lampu']               = 'C_NodeMCU/update_status_lampu';
+$route['update_status_kipas']               = 'C_NodeMCU/update_status_kipas';
+$route['get_config_device']                 = 'C_NodeMCU/get_config_device';

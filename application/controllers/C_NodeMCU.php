@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_Wemos extends CI_Controller
+class C_NodeMCU extends CI_Controller
 {
     public function __construct()
     {
@@ -34,8 +34,15 @@ class C_Wemos extends CI_Controller
 
     public function get_config_device()
     {
-        $data = $this->M_monitoring->get_config_device();
+        $device = $this->input->get('device');
+        $data   = $this->M_monitoring->get_config_device();
 
-        echo $data['LAMPU']. '-' .$data['KIPAS'];
+        if($device == 'lampu'){
+            echo $data['LAMPU'];
+        } else if ($device == 'kipas') {
+            echo $data['KIPAS'];
+        } else {
+            echo 'error';
+        }
     }
 }
