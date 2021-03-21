@@ -17,7 +17,7 @@ class M_monitoring extends CI_Model
         $data = [
             'SUHU'          => $suhu,
             'KELEMBABAN'    => $kelembaban,
-            'DATE_CREATE'   => strtotime(date('d-M-Y H:i'))
+            'DATE_CREATE'   => strtotime(date('d-M-Y H:i:s'))
         ];
 
         $this->db->insert('SUHU_KELEMBABAN', $data);
@@ -25,7 +25,7 @@ class M_monitoring extends CI_Model
 
     public function get_suhu_kelembaban()
     {
-        $query = "SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC limit 5";
+        $query = "SELECT * FROM SUHU_KELEMBABAN ORDER BY ID DESC limit 10";
         return $this->db->query($query)->result_array();
     }
 
