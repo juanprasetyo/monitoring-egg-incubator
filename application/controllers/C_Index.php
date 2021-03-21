@@ -29,6 +29,19 @@ class C_Index extends CI_Controller
         $this->load->view('V_Footer', $data);
     }
 
+    public function about()
+    {
+        $email = $this->session->userdata('email');
+        $data  = [
+            'title' => 'About',
+            'user'  => $this->M_user->get_by_email($email)->row_array(),
+        ];
+        $this->load->view('V_Header', $data);
+        $this->load->view('V_Sidebar', $data);
+        $this->load->view('V_About', $data);
+        $this->load->view('V_Footer', $data);
+    }
+
     public function get_suhu_kelembaban()
     {
         date_default_timezone_set("Asia/Jakarta");
