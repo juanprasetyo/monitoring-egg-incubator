@@ -66,6 +66,8 @@
 <script src="<?= base_url('assets/'); ?>plugins/chartjs/Chart.min.js"></script>
 <!-- icheck -->
 <script src="<?= base_url('assets/'); ?>plugins/icheck/icheck.min.js"></script>
+<!-- Sweet Alert -->
+<script src="<?= base_url('assets/'); ?>plugins/sweetalert2/sweetalert2.all.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/'); ?>js/adminlte.min.js"></script>
 

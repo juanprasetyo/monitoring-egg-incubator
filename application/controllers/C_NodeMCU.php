@@ -45,4 +45,13 @@ class C_NodeMCU extends CI_Controller
             echo 'error';
         }
     }
+
+    public function get_config_dht()
+    {
+        $jenis = $this->input->get('data');
+
+        $data = $this->M_monitoring->get_data_config_dht();
+
+        echo $data[strtoupper($jenis)];
+    }
 }

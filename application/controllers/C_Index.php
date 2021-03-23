@@ -67,11 +67,8 @@ class C_Index extends CI_Controller
 
     public function get_config_device()
     {
-        $config_dht     = $this->M_monitoring->get_config_dht();
         $config_device  = $this->M_monitoring->get_config_device();
         $config = [
-            'suhu'       => $config_dht['SUHU'],
-            'kelembaban' => $config_dht['KELEMBABAN'],
             'lampu'      => $config_device['LAMPU'],
             'kipas'      => $config_device['KIPAS']
         ];
@@ -91,5 +88,21 @@ class C_Index extends CI_Controller
         $status = $this->input->post('status');
 
         $this->M_monitoring->update_status_kipas($status);
+    }
+
+    public function get_data_config_dht()
+    {
+        $data = $this->M_monitoring->get_data_config_dht();
+
+        echo json_encode($data);
+    }
+
+    public function save_config_dht()
+    {
+        $post = $this->input->post();
+
+        $this->M_monitoring->update_config_dht($post);
+        
+        echo 1;
     }
 }

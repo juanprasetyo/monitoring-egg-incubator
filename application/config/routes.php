@@ -65,3 +65,4 @@ $route['insert_suhu_kelembaban']            = 'C_NodeMCU/insert_suhu_kelembaban'
 $route['updata_status_lampu']               = 'C_NodeMCU/update_status_lampu';
 $route['update_status_kipas']               = 'C_NodeMCU/update_status_kipas';
 $route['get_config_device']                 = 'C_NodeMCU/get_config_device';
+$route['get_config_dht']                    = 'C_NodeMCU/get_config_dht';

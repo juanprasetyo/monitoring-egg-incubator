@@ -54,4 +54,28 @@ class M_monitoring extends CI_Model
     {
         $this->db->update('STATUS_DEVICE', ['KIPAS' => $status], ['ID' => 1]);
     }
+
+    public function get_data_config_dht()
+    {
+        return $this->db->get_where('CONFIG_DHT', ['ID' => 1])->row_array();
+    }
+
+    public function update_config_dht($post)
+    {
+        $data = [];
+
+        if($post['jenis'] == 'suhu'){
+            $data =  [
+                'SUHU_MIN' => $post['min'],
+                'SUHU_MAX' => $post['max']
+            ];
+        } else if($post['jenisSetting'] == 'kelembaban'){
+            $data = [
+                'KELEMBABAN_MIN' => $post['min'],
+                'KELEMBABAN_MAX' => $post['max']
+            ];
+        }
+
+        $this->db->update('CONFIG_DHT', $data, ['ID' => 1]);
+    }
 }

@@ -176,23 +176,19 @@
             <div class="row" style="min-height: 150px;">
                 <div class="col-lg-3 text-center">
                     <div class="small-box bg-warning pt-3 pb-2">
+                        <div class="settingDHT settingSuhu text-left pl-4" style="font-size: 25px;"><i class="fa fa-cog"></i></div>
                         <div class="inner">
                             <h4 class="mb-3">Suhu</h4>
                             <h3><span class="suhu">0</span>&#176;C</h3>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 text-center">
                     <div class="small-box bg-info pt-3 pb-2">
+                        <div class="settingDHT settingKelembaban text-left pl-4" style="font-size: 25px;"><i class="fa fa-cog"></i></div>
                         <div class="inner">
                             <h4 class="mb-3">Kelembaban</h4>
                             <h3><span class="kelembaban">0</span>%</h3>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
                         </div>
                     </div>
                 </div>
@@ -239,3 +235,44 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="mdlSettingDHT" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="mdlSettingDHT" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formConfigDHT" method="post">
+                <input type="hidden" name="jenisSetting" class="jenisSetting">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-11 mx-auto">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label class="title-input-config-dht">Min</label>
+                                        <input type="number" class="form-control inputConfig input-config-min" name="input-config-min" required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="title-input-config-dht">Max</label>
+                                        <input type="number" class="form-control inputConfig input-config-max" name="input-config-max" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary btn-reset-config-dht">Reset Default</button>
+                    <button type="submit" class="btn btn-primary btn-save-config-dht">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
