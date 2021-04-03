@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Log in</title>
+    <title>Recover Password</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,52 +21,47 @@
 </head>
 
 <body class="hold-transition login-page">
+    <?= $this->session->flashdata('notif') ?>
+    <div class="alert" data-alert="<?= $this->session->flashdata('notif') ?>"></div>
+    <?php $this->session->set_flashdata('notif', '') ;?>
     <div class="login-box">
         <div class="login-logo">
             <a href="#"><img src="<?= base_url('assets/'); ?>img/logo/logo-rectangle-black.svg" alt="Logo Yeagerist" style="height: 100px;"></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
-            <div class="alert" data-alert="<?= $this->session->flashdata('notif') ?>"></div>
-            <?php $this->session->set_flashdata('notif', '') ;?>
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
 
-                <form action="<?= base_url('login'); ?>" method="post">
+                <form action="<?= base_url('recovery_password?email='.$email); ?>" method="post">
                     <div class="input-group">
-                        <input type="email" class="form-control <?= form_error('email') ? 'is-invalid' : ''; ?>" placeholder="Email" name="email" value="<?= set_value('email'); ?>">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
-                    <div class="input-group mt-3">
-                        <input type="password" class="form-control <?= form_error('password') ? 'is-invalid' : ''; ?>" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
-                    <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
-                    <div class="row mt-3">
-                        <div class="col-8">
+                    <?= form_error('password', '<small class="text-danger ml-1">', '</small>'); ?>
+                    <div class="input-group mt-3">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
                         </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <?= form_error('password2', '<small class="text-danger ml-1">', '</small>'); ?>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Change password</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
 
-                <p class="mb-1">
-                    <a href="<?= base_url('forgot_password'); ?>">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="<?= base_url('register'); ?>" class="text-center">Register a new account</a>
+                <p class="mt-3 mb-1">
+                    <a href="<?= base_url('login'); ?>">Login</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
@@ -84,32 +79,12 @@
     <script src="<?= base_url('assets/'); ?>js/adminlte.min.js"></script>
     <script>
     let alert = $('.alert').data('alert');
-    if (alert == 'error_email') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Gagal!',
-            footer: 'Email yang anda masukkan belum terdaftar!'
-        })
-    } else if (alert == 'error_password') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Gagal!',
-            footer: 'Password yang anda masukkan salah!'
-        })
-    } else if (alert == 'error_login') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Gagal!',
-            footer: 'Anda harus login dahulu!'
-        })
-    } else if (alert == 'logout') {
+    console.log(alert);
+    if (alert == 'success') {
         Swal.fire({
             icon: 'success',
             title: 'Berhasil',
-            text: 'Berhasil Logout!'
+            text: 'Password berhasil diperbarui!',
         })
     }
     </script>
