@@ -59,8 +59,10 @@ $route['register']                          = 'C_Auth/register_view';
 $route['forgot_password']                   = 'C_Auth/forgot_password';
 $route['recovery_password']                 = 'C_Auth/recovery_password';
 
-$route['dashboard']                         = 'C_Index';
-$route['dashboard/(:any)']                  = 'C_Index/$1';
+$route['admin']                             = 'C_Index';
+$route['admin/(:any)']                      = 'C_Index/$1';
+$route['dashboard']                         = 'C_User';
+$route['dashboard/(:any)']                  = 'C_User/$1';
 $route['about']                             = 'C_Index/about';
 
 $route['insert_suhu_kelembaban']            = 'C_NodeMCU/insert_suhu_kelembaban';

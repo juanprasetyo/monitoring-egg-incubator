@@ -86,7 +86,7 @@
                     </div>
                 </form>
 
-                <a href="<?= base_url('login'); ?>" class="text-center">I already have a membership</a>
+                <a href="<?= base_url('login'); ?>" class="text-center">I already have a account</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

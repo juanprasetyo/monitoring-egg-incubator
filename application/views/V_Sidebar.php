@@ -10,11 +10,11 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                <?php $user['PROFILE_PICTURE'] == 'default.png' ? $image = $user['PROFILE_PICTURE'] : $image = $user['ID'] . $user['PROFILE_PICTURE'] ;?>
-                <img src="<?= base_url('assets/img/profile/') . $image; ?>" class="img-circle elevation-2" alt="User Image">
+                  <?php $user['PROFILE_PICTURE'] == 'default.png' ? $image = $user['PROFILE_PICTURE'] : $image = $user['ID'] . $user['PROFILE_PICTURE'] ;?>
+                  <img src="<?= base_url('assets/img/profile/') . $image; ?>" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                <a href="#" class="d-block profile-name"><?= $user['NAME']; ?></a>
+                  <a href="#" class="d-block profile-name"><?= $user['NAME']; ?></a>
               </div>
           </div>
 
@@ -24,7 +24,7 @@
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                   <li class="nav-item">
-                      <a href="<?= base_url('dashboard'); ?>" class="nav-link">
+                      <a href="<?= $this->session->userdata('role_id') == 0 ? base_url('admin') : base_url('dashboard')  ;?>" class="nav-link">
                           <i class="nav-icon fas fa-home"></i>
                           <p>
                               Home

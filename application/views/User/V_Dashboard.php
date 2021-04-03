@@ -153,6 +153,7 @@
 </style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <input type="hidden" class="role_id" value="<?= $this->session->userdata('role_id'); ?>">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -176,7 +177,6 @@
             <div class="row" style="min-height: 150px;">
                 <div class="col-lg-3 text-center">
                     <div class="small-box bg-warning pt-3 pb-2">
-                        <div class="settingDHT settingSuhu text-left pl-4" style="font-size: 25px;"><i class="fa fa-cog"></i></div>
                         <div class="inner">
                             <h4 class="mb-3">Suhu</h4>
                             <h3><span class="suhu">0</span>&#176;C</h3>
@@ -185,7 +185,6 @@
                 </div>
                 <div class="col-lg-3 text-center">
                     <div class="small-box bg-info pt-3 pb-2">
-                        <div class="settingDHT settingKelembaban text-left pl-4" style="font-size: 25px;"><i class="fa fa-cog"></i></div>
                         <div class="inner">
                             <h4 class="mb-3">Kelembaban</h4>
                             <h3><span class="kelembaban">0</span>%</h3>
@@ -196,7 +195,7 @@
                     <h4>Lampu</h4>
                     <div class="switch">
                         <label>
-                            <input type="checkbox" class="switchLampu" />
+                            <input type="checkbox" class="switchLampu" disabled />
                             <div>
                                 <span class="on">On</span>
                                 <span class="off">Off</span>
@@ -210,7 +209,7 @@
                     <h4>Kipas</h4>
                     <div class="switch">
                         <label>
-                            <input type="checkbox" class="switchKipas" />
+                            <input type="checkbox" class="switchKipas" disabled />
                             <div>
                                 <span class="on">On</span>
                                 <span class="off">Off</span>

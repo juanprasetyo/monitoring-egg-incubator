@@ -14,9 +14,6 @@ class C_Auth extends CI_Controller
 
     public function login_view()
     {
-        $data = [];
-        // $this->session->set_flashdata('error', '');
-
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
@@ -35,8 +32,13 @@ class C_Auth extends CI_Controller
             $data = $this->user->get_by_email($email)->row_array();
             if (password_verify($pass, $data['PASSWORD'])) {
                 $this->session->set_userdata('status', 'login');
+                $this->session->set_userdata('role_id', $data['ROLE_ID']);
                 $this->session->set_userdata('email', $email);
-                redirect(base_url('dashboard'));
+                if($data['ROLE_ID'] == 0){
+                    redirect(base_url('admin'));
+                } else {
+                    redirect(base_url('dashboard'));
+                }
             } else {
                 $this->session->set_flashdata('notif', 'error_password');
                 $this->load->view('V_Login');
@@ -66,6 +68,7 @@ class C_Auth extends CI_Controller
                 'PASSWORD'        => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'PROFILE_PICTURE' => 'default.png',
                 'DATE_CREATE'     => strtotime(date('d M Y')),
+                'ROLE_ID'         => 1
             ];
             $affected = $this->user->add($user);
             if($affected > 0){

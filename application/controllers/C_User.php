@@ -1,7 +1,7 @@
 <?php 
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed.');
 
-class C_Index extends CI_Controller
+class C_User extends CI_Controller
 {
     public function __construct()
     {
@@ -10,9 +10,9 @@ class C_Index extends CI_Controller
         if($this->session->userdata('status') !== 'login'){
             $this->session->set_flashdata('notif', 'error_login');
             redirect(base_url('login'));
-        } else if($this->session->userdata('role_id') != 0){
+        } else if($this->session->userdata('role_id') != 1){
             redirect(base_url('login'));
-        } else{}
+        } else {}
 
         $this->load->model('M_monitoring');
         $this->load->model('M_user');
@@ -28,20 +28,7 @@ class C_Index extends CI_Controller
         ];
         $this->load->view('V_Header', $data);
         $this->load->view('V_Sidebar', $data);
-        $this->load->view('Admin/V_Dashboard', $data);
-        $this->load->view('V_Footer', $data);
-    }
-
-    public function about()
-    {
-        $email = $this->session->userdata('email');
-        $data  = [
-            'title' => 'About',
-            'user'  => $this->M_user->get_by_email($email)->row_array(),
-        ];
-        $this->load->view('V_Header', $data);
-        $this->load->view('V_Sidebar', $data);
-        $this->load->view('V_About', $data);
+        $this->load->view('User/V_Dashboard', $data);
         $this->load->view('V_Footer', $data);
     }
 
@@ -79,33 +66,10 @@ class C_Index extends CI_Controller
         echo json_encode($config);
     }
 
-    public function update_status_lampu()
-    {
-        $status = $this->input->post('status');
-
-        $this->M_monitoring->update_status_lampu($status);
-    }
-
-    public function update_status_kipas()
-    {
-        $status = $this->input->post('status');
-
-        $this->M_monitoring->update_status_kipas($status);
-    }
-
     public function get_data_config_dht()
     {
         $data = $this->M_monitoring->get_data_config_dht();
 
         echo json_encode($data);
-    }
-
-    public function save_config_dht()
-    {
-        $post = $this->input->post();
-
-        $this->M_monitoring->update_config_dht($post);
-        
-        echo 1;
     }
 }
