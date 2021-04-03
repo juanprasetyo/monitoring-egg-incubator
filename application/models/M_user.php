@@ -20,4 +20,9 @@ class M_user extends CI_Model
     {
         return $this->db->get_where('USERS', ['email' => $email]);
     }
+
+    public function update_password($new_password, $email)
+    {
+        $this->db->update('USERS', ['PASSWORD' => $new_password], ['EMAIL' => $email]);
+    }
 }

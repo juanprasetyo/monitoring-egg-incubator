@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login']                             = 'C_Auth/login_view';
 $route['logout']                            = 'C_Auth/logout';
 $route['register']                          = 'C_Auth/register_view';
+$route['forgot_password']                   = 'C_Auth/forgot_password';
+$route['recovery_password']                 = 'C_Auth/recovery_password';
 
 $route['dashboard']                         = 'C_Index';
 $route['dashboard/(:any)']                  = 'C_Index/$1';

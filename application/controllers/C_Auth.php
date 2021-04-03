@@ -86,4 +86,40 @@ class C_Auth extends CI_Controller
         $this->session->set_flashdata('notif', 'logout');
         redirect(base_url('login'));
     }
+
+    public function forgot_password()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('V_ForgotPassword');
+        } else {
+            $email = $this->input->post('email');
+
+            if($this->user->get_by_email($email)->row_array() > 0){
+                $this->session->set_flashdata('email', $email);
+                redirect(base_url('recovery_password?email='.$email));
+            } else {
+                $this->session->set_flashdata('notif', 'error');
+                $this->load->view('V_ForgotPassword');
+            }
+        }
+        
+    }
+
+    public function recovery_password()
+    {
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
+        $this->form_validation->set_rules('password2', 'Password2', 'required|trim|matches[password]');
+        $data['email'] = $this->input->get('email');
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('V_RecoveryPassword', $data);
+        } else {
+            $new_password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+            $this->session->set_flashdata('notif', 'success');
+            $this->user->update_password($new_password, $data['email']);
+            redirect(base_url('recovery_password?email='.$data['email']));
+        }
+    }
 }

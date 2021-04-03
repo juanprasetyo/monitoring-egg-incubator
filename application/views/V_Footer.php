@@ -73,12 +73,20 @@
 
 <script>
 var baseurl = '<?= base_url(); ?>';
+
+$(document).ready(function() {
+    $(".profile-name").click(function() {
+        $("#mdlViewProfile").modal("show");
+    });
+});
 </script>
 
-<!-- Custom monitoring js -->
-<script src="<?= base_url('assets/'); ?>js/monitoring.js"></script>
-<!-- Custom user -->
-<script src="<?= base_url('assets/'); ?>js/user.js"></script>
+<!-- Custom Javascript -->
+<?php if(ISSET($js_file)) :?>
+<?php foreach($js_file as $js) :?>
+<script src="<?= base_url('assets/js/'.$js); ?>"></script>
+<?php endforeach ;?>
+<?php endif ;?>
 </body>
 
 </html>
